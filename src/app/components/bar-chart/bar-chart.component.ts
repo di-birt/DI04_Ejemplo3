@@ -8,7 +8,7 @@ import { Chart, ChartType } from 'chart.js/auto';
 })
 export class BarChartComponent implements OnInit {
  
-  //Estos inputs las recibimos desde tab3.page.html y se declaran en tab3.page.ts
+  //Estos inputs las recibimos desde tab6.page.html y se declaran en tab6.page.ts
   @Input() datosCategorias: number[] = [];
   @Input() nombresCategorias: string[] = [];
   @Input() backgroundColorCategorias: string[] = [];
@@ -31,10 +31,11 @@ export class BarChartComponent implements OnInit {
     // Destruir el gráfico existente si existe
     this.destroyChart();
 
+    // Sacamos datos fuera del if/else y lo declaramos con let en vez de const
     let data = null;
   
     if (this.tipoChartSelected === "bar-chart"){
-      // datos
+      // Datos asignados con los valores que vienen desde tab6
       data = {
         labels: this.nombresCategorias,
         datasets: [{
@@ -47,7 +48,7 @@ export class BarChartComponent implements OnInit {
         }]
       };
     } else {
-      // datos
+      // // Datos asignados aquí
       data = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
