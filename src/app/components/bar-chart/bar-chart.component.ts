@@ -23,14 +23,8 @@ export class BarChartComponent implements OnInit {
     console.log("Ejecuta bar-chart")
     this.inicializarChart();
   }
-  ngOnDestroy() {
-    this.destroyChart();
-  }
 
   private inicializarChart() {
-    // Destruir el gráfico existente si existe
-    this.destroyChart();
-
     // Sacamos datos fuera del if/else y lo declaramos con let en vez de const
     let data = null;
   
@@ -114,12 +108,5 @@ export class BarChartComponent implements OnInit {
   
     this.chart.canvas.width = 100;
     this.chart.canvas.height = 100;
-  }
-
-  private destroyChart() {
-    // Destruir el gráfico si existe
-    if (this.chart) {
-      this.chart.destroy();
-    }
   }
 }
